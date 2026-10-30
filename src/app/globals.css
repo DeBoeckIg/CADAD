@@ -23,8 +23,12 @@
   --color-slate: #475569;
 
   /* Chapter & accent hues */
-  --color-forest: #0a2e0e;
-  --color-moss: #214224;
+  /* VetNet chapter: palette taken from the VetNet prototype */
+  --color-plum: #980856;
+  --color-magenta: #b50e69;
+  --color-blush: #fceaf3;
+  --color-blush-strong: #f2c6dd;
+  --color-blush-soft: #fdf7fa;
   --color-marigold: #fcb42a;
   --color-peach: #fcab79;
   --color-pale-sky: #c7e5f2;

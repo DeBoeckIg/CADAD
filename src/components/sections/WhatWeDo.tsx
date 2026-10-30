@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, Lock } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -7,7 +8,7 @@ import { chapters, chaptersIntro, type Chapter } from "@/content/home";
 
 const chapterStyles: Record<Chapter["id"], { surface: string; kicker: string; check: string }> = {
   custom: { surface: "bg-blue", kicker: "text-sky-light", check: "text-sky" },
-  vetnet: { surface: "bg-forest", kicker: "text-peach", check: "text-moss" },
+  vetnet: { surface: "bg-plum", kicker: "text-blush-strong", check: "text-magenta" },
   upcoming: { surface: "bg-onyx", kicker: "text-steel", check: "text-steel" },
 };
 
@@ -21,7 +22,12 @@ function ChapterCard({ chapter }: { chapter: Chapter }) {
         {chapter.locked && <Lock className="h-3.5 w-3.5" aria-hidden="true" />}
         {chapter.kicker}
       </p>
-      <h3 className={`mt-4 font-display text-3xl font-bold !text-white ${chapter.locked ? "opacity-80" : ""}`}>
+      <h3
+        className={`mt-4 flex items-center gap-3 font-display text-3xl font-bold !text-white ${chapter.locked ? "opacity-80" : ""}`}
+      >
+        {chapter.logo && (
+          <Image src={chapter.logo} alt="" width={40} height={40} className="h-10 w-10 rounded-[10px] bg-white" />
+        )}
         {chapter.title}
       </h3>
       <p className={`mt-3 leading-relaxed ${chapter.locked ? "text-white/60" : "text-white/85"}`}>{chapter.body}</p>

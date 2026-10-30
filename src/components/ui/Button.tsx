@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
-type Variant = "primary" | "ghost" | "inverse" | "inverse-ghost";
+type Variant = "primary" | "ghost" | "inverse" | "inverse-ghost" | "vetnet-ghost" | "vetnet-inverse";
 type Size = "md" | "sm";
 
 const base =
@@ -12,6 +12,9 @@ const variants: Record<Variant, string> = {
   ghost: "bg-white text-navy border border-navy hover:bg-sky-pale",
   inverse: "bg-white text-navy hover:bg-sky-pale",
   "inverse-ghost": "border border-white/70 text-white hover:bg-white/10",
+  // VetNet chapter: magenta accent instead of CADAD navy.
+  "vetnet-ghost": "bg-white text-plum border border-magenta hover:bg-blush",
+  "vetnet-inverse": "bg-white text-plum hover:bg-blush",
 };
 
 const sizes: Record<Size, string> = {

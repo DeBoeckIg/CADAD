@@ -14,7 +14,7 @@ export function TrustBar() {
             delay={index * 80}
             className="flex items-center gap-4 rounded-card border border-silver bg-white p-4"
           >
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-button bg-sky-pale text-blue">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-button bg-blush text-magenta">
               <Icon className="h-6 w-6" aria-hidden="true" />
             </span>
             <span className="flex flex-col">

@@ -9,9 +9,9 @@ export function BetaProgram() {
   return (
     <div id="beta" role="region" aria-labelledby="beta-title" className="mt-24">
       {/* The dog photo is cut on its right and bottom edges, so it sits flush in the card's bottom-right corner. */}
-      <Reveal className="grid overflow-hidden rounded-feature bg-forest text-white lg:grid-cols-[1.3fr_1fr]">
+      <Reveal className="grid overflow-hidden rounded-feature bg-plum text-white lg:grid-cols-[1.3fr_1fr]">
         <div className="p-6 sm:p-10 lg:p-16 lg:pr-4">
-          <Chip tone="marigold">{beta.eyebrow}</Chip>
+          <Chip tone="blush">{beta.eyebrow}</Chip>
           <h3 id="beta-title" className="mt-6 font-display text-[2rem] leading-[1.1] font-black !text-white sm:text-[2.75rem]">
             {beta.title}
           </h3>
@@ -19,12 +19,12 @@ export function BetaProgram() {
           <ul className="mt-6 grid gap-x-6 gap-y-2 sm:grid-cols-2">
             {beta.perks.map((perk) => (
               <li key={perk} className="flex items-start gap-2 text-[15px] leading-snug text-white/90">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-marigold" aria-hidden="true" />
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blush-strong" aria-hidden="true" />
                 <span>{perk}</span>
               </li>
             ))}
           </ul>
-          <ButtonLink href={beta.cta.href} variant="inverse" className="mt-8">
+          <ButtonLink href={beta.cta.href} variant="vetnet-inverse" className="mt-8">
             {beta.cta.label}
           </ButtonLink>
         </div>

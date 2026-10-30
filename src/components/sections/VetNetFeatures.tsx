@@ -6,7 +6,7 @@ import { ProductVideoFrame } from "@/components/ui/ProductVideoFrame";
 import type { FeatureTab } from "@/content/vetnet";
 
 /**
- * WAI-ARIA tabs: numbered tab row (01–04) above a full-width saturated forest
+ * WAI-ARIA tabs: numbered tab row (01–04) above a full-width soft blush
  * block with a compact description card and the module's video. Only the
  * selected tab's video plays; it restarts from 0 each time its tab is selected.
  */
@@ -61,11 +61,11 @@ export function VetNetFeatures({ tabs }: { tabs: FeatureTab[] }) {
               onKeyDown={(event) => onKeyDown(event, index)}
               className={`flex items-start gap-3 rounded-card border-l-4 px-4 py-3 text-left transition-colors lg:border-l-0 lg:border-t-4 lg:py-4 ${
                 selected
-                  ? "border-forest bg-white text-onyx shadow-nav"
+                  ? "border-magenta bg-white text-onyx shadow-nav"
                   : "border-transparent text-graphite hover:bg-white/60 hover:text-onyx"
               }`}
             >
-              <span className={`font-display text-xl ${selected ? "font-black text-forest" : "font-bold text-steel"}`}>
+              <span className={`font-display text-xl ${selected ? "font-black text-magenta" : "font-bold text-steel"}`}>
                 {tab.number}
               </span>
               <span className={`pt-0.5 text-base leading-snug ${selected ? "font-semibold" : "font-medium"}`}>
@@ -84,7 +84,7 @@ export function VetNetFeatures({ tabs }: { tabs: FeatureTab[] }) {
           aria-labelledby={`tab-${tab.id}`}
           hidden={index !== active}
           tabIndex={0}
-          className="mt-4 rounded-feature bg-forest p-2 sm:p-4 lg:p-6"
+          className="mt-4 rounded-feature bg-blush p-2 ring-1 ring-blush-strong sm:p-4 lg:p-6"
         >
           <div className="grid gap-4 rounded-card bg-white p-4 sm:p-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-center lg:gap-8">
             <div>
@@ -95,7 +95,7 @@ export function VetNetFeatures({ tabs }: { tabs: FeatureTab[] }) {
               {tab.points.map((point) => (
                 <li
                   key={point}
-                  className="inline-flex items-center gap-1.5 rounded-tag bg-[#e9f1e6] px-3 py-1 text-sm font-medium text-moss"
+                  className="inline-flex items-center gap-1.5 rounded-tag bg-blush px-3 py-1 text-sm font-medium text-plum"
                 >
                   <Check className="h-3.5 w-3.5" aria-hidden="true" />
                   {point}

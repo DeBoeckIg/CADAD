@@ -50,6 +50,7 @@ export type Chapter = {
   title: string;
   body: string;
   bullets: string[];
+  logo?: string;
   cta?: { label: string; href: string };
   locked?: boolean;
 };
@@ -75,6 +76,7 @@ export const chapters: Chapter[] = [
     title: "VetNet",
     body: "Gestión integral para clínicas veterinarias y petshops: historia clínica, turnos, ventas, stock y auditoría en un solo lugar.",
     bullets: ["Consultorio y fichas clínicas", "Caja con código de barras", "Multisucursal y roles"],
+    logo: "/images/vetnet-logo.webp",
     cta: { label: "Conocé VetNet", href: "/#vetnet" },
   },
   {

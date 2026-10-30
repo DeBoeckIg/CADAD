@@ -1,9 +1,11 @@
 import type { ReactNode } from "react";
 
-type Tone = "marigold" | "peach" | "pale-sky" | "white" | "dark" | "outline-light";
+type Tone = "marigold" | "blush" | "blush-strong" | "peach" | "pale-sky" | "white" | "dark" | "outline-light";
 
 const tones: Record<Tone, string> = {
   marigold: "bg-marigold text-onyx",
+  blush: "bg-blush text-plum",
+  "blush-strong": "bg-blush-strong text-plum",
   peach: "bg-peach text-onyx",
   "pale-sky": "bg-pale-sky text-navy",
   white: "bg-white text-navy",
