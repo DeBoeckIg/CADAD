@@ -9,8 +9,13 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="relative isolate flex min-h-[85vh] items-center overflow-hidden bg-navy"
     >
+      {/*
+        opacity < 1 keeps Chrome from promoting the video to a hardware overlay at
+        the top of the page and demoting it once the sticky header covers it; the
+        two paths convert colors differently and the background visibly shifts tone.
+      */}
       <video
-        className="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
+        className="absolute inset-0 -z-10 h-full w-full object-cover opacity-[0.99] motion-reduce:hidden"
         src={hero.video.src}
         autoPlay
         muted

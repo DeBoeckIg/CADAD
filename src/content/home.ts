@@ -6,7 +6,7 @@ export const hero = {
   lead: "Diseñamos y desarrollamos software a medida para organizaciones del NOA, con soporte directo y cercano. Nuestro primer producto es VetNet: la gestión integral para clínicas veterinarias.",
   primaryCta: { label: "Hablemos", href: "/#contacto" },
   secondaryCta: { label: "Nuestros Proyectos", href: "/#servicios" },
-  video: { src: "/videos/hero.mp4" },
+  video: { src: "/videos/hero-loop.mp4" },
 };
 
 export const vetnetShowcase = {
