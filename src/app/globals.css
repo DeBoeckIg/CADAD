@@ -1,26 +1,132 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Design tokens: Airtable-derived editorial system (DESIGN.md)
+ * with CADAD navy replacing onyx as the primary action color.
+ */
+@theme {
+  /* Canvas & neutrals */
+  --color-parchment: #faf5e8;
+  --color-frost: #f8fafc;
+  --color-onyx: #181d26;
+  --color-charcoal: #333840;
+  --color-graphite: #525965;
+  --color-steel: #9297a0;
+  --color-silver: #e0e2e6;
+
+  /* CADAD brand */
+  --color-navy: #172554;
+  --color-blue: #1e3a8a;
+  --color-sky: #0284c7;
+  --color-sky-light: #7dd3fc;
+  --color-sky-pale: #e0f2fe;
+  --color-slate: #475569;
+
+  /* Chapter & accent hues */
+  --color-forest: #0a2e0e;
+  --color-moss: #214224;
+  --color-marigold: #fcb42a;
+  --color-peach: #fcab79;
+  --color-pale-sky: #c7e5f2;
+
+  /* Radii */
+  --radius-button: 12px;
+  --radius-card: 16px;
+  --radius-feature: 24px;
+  --radius-tag: 32px;
+
+  /* Shadows */
+  --shadow-nav: rgba(15, 48, 106, 0.05) 0px 0px 20px 0px;
+  --shadow-cta:
+    rgba(0, 0, 0, 0.32) 0px 0px 1px 0px, rgba(0, 0, 0, 0.08) 0px 0px 2px 0px,
+    rgba(45, 127, 249, 0.28) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 0.5px inset;
+  --shadow-frame: 0 24px 60px -24px rgba(23, 37, 84, 0.45);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-parchment);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--color-navy);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-sky);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility text-link {
+  color: var(--color-sky);
+  font-weight: 500;
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+  &:hover {
+    color: var(--color-blue);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-rise {
+  animation: rise-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/*
+ * Scroll reveal (see components/ui/Reveal.tsx). The data attribute is only set
+ * by JS after hydration for below-the-fold elements, so SSR/no-JS stays visible.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal="hidden"] {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  [data-reveal="shown"] {
+    transition:
+      opacity 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
+      transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+  }
 }
